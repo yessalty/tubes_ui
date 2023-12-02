@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tubes_ui/view/login/forgotPass.dart';
-import 'package:tubes_ui/view/home.dart';
+import 'package:tubes_ui/view/home/home.dart';
 import 'package:tubes_ui/view/login/register.dart';
 
 class LoginPage extends StatefulWidget {
@@ -25,7 +25,7 @@ class _LoginPageState extends State<LoginPage> {
       home: Scaffold(
         body: SafeArea(
           child: Padding(
-            padding: EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(20.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -36,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
                   style: TextStyle(
                     fontSize: 48,
                     fontWeight: FontWeight.bold,
-                    color: Colors.blue,
+                    color: Color.fromRGBO(127, 90, 240, 1),
                   ),
                 ),
                 const SizedBox(
@@ -44,15 +44,15 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 TextFormField(
                   controller: emailController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       labelText: 'Email', border: OutlineInputBorder()),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 TextFormField(
                   controller: passwordController,
                   decoration: InputDecoration(
                     labelText: 'Password',
-                    border: OutlineInputBorder(),
+                    border: const OutlineInputBorder(),
                     suffixIcon: IconButton(
                       icon: Icon(
                         _isPasswordVisible
@@ -73,22 +73,25 @@ class _LoginPageState extends State<LoginPage> {
                       onTap: () {
                         Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(builder: (context) => ForgotPass()),
+                          MaterialPageRoute(builder: (context) => const ForgotPass()),
                         );
                       },
-                      child: Text('Forgot Password'),
+                      child: const Text('Forgot Password', style: TextStyle(color: Color.fromRGBO(127, 90, 240, 1)),),
                     ),
                   ],
                 ),
                 const SizedBox(height: 50),
                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromRGBO(127, 90, 240, 1),
+                  ),
                   onPressed: () {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => Homepage()),
                     );
                   },
-                  child: Text('Login'),
+                  child: const Text('Login',),
                 ),
                 const SizedBox(height: 10),
                 GestureDetector(
@@ -98,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                       MaterialPageRoute(builder: (context) => RegisterPage()),
                     );
                   },
-                  child: Text('Don\'t have an account? Sign up'),
+                  child: const Text('Don\'t have an account? Sign up'),
                 ),
               ],
             ),

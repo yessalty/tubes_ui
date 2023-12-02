@@ -15,7 +15,7 @@ class _ForgotPassState extends State<ForgotPass> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             // Navigate back to login page
           },
@@ -26,25 +26,28 @@ class _ForgotPassState extends State<ForgotPass> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Text(
+            const Text(
               'Forgot Password',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'Please input your email to recover your CAR RENT account',
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             TextFormField(
               controller: emailController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Email',
                 border: OutlineInputBorder(),
               ),
               keyboardType: TextInputType.emailAddress,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromRGBO(127, 90, 240, 1),
+                  ),
               onPressed: () {
                 // Navigate to Create New Password Page with email data
                 String email = emailController.text;
@@ -55,7 +58,7 @@ class _ForgotPassState extends State<ForgotPass> {
                   ),
                 );
               },
-              child: Text('Recover Account'),
+              child: const Text('Recover Account'),
             ),
           ],
         ),
@@ -82,7 +85,7 @@ class _CreateNewPasswordPageState extends State<CreateNewPasswordPage> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             // Navigate back to Forgot Password Page
             Navigator.pop(context);
@@ -90,38 +93,41 @@ class _CreateNewPasswordPageState extends State<CreateNewPasswordPage> {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Text(
+            const Text(
               'Create New Password',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'Please create a new password for your CAR RENT account to access your account again',
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             TextFormField(
               controller: passwordController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Password',
                 border: OutlineInputBorder(),
               ),
               obscureText: true,
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             TextFormField(
               controller: retypePasswordController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Retype Password',
                 border: OutlineInputBorder(),
               ),
               obscureText: true,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromRGBO(127, 90, 240, 1),
+                  ),
               onPressed: () {
                 // Validate and change password logic
                 if (passwordController.text.isEmpty || retypePasswordController.text.isEmpty) {
@@ -129,14 +135,14 @@ class _CreateNewPasswordPageState extends State<CreateNewPasswordPage> {
                     context: context,
                     builder: (BuildContext context) {
                       return AlertDialog(
-                        title: Text('Error'),
-                        content: Text('Please fill in both password fields.'),
+                        title: const Text('Error'),
+                        content: const Text('Please fill in both password fields.'),
                         actions: [
                           TextButton(
                             onPressed: () {
                               Navigator.of(context).pop();
                             },
-                            child: Text('OK'),
+                            child: const Text('OK', style: TextStyle(color: Color.fromRGBO(127, 90, 240, 1),),),
                           ),
                         ],
                       );
@@ -147,14 +153,14 @@ class _CreateNewPasswordPageState extends State<CreateNewPasswordPage> {
                     context: context,
                     builder: (BuildContext context) {
                       return AlertDialog(
-                        title: Text('Error'),
-                        content: Text('Passwords do not match.'),
+                        title: const Text('Error'),
+                        content: const Text('Passwords do not match.'),
                         actions: [
                           TextButton(
                             onPressed: () {
                               Navigator.of(context).pop();
                             },
-                            child: Text('OK'),
+                            child: const Text('OK'),
                           ),
                         ],
                       );
@@ -165,13 +171,13 @@ class _CreateNewPasswordPageState extends State<CreateNewPasswordPage> {
                     context: context,
                     builder: (BuildContext context) {
                       return AlertDialog(
-                        content: Text('Your password has been changed. Please retry to Login Again!'),
+                        content: const Text('Your password has been changed. Please retry to Login Again!'),
                         actions: [
                           TextButton(
                             onPressed: () {
                               Navigator.of(context).popUntil(ModalRoute.withName('/')); // Navigate back to home
                             },
-                            child: Text('Confirm'),
+                            child: const Text('Confirm'),
                           ),
                         ],
                       );
@@ -179,7 +185,7 @@ class _CreateNewPasswordPageState extends State<CreateNewPasswordPage> {
                   );
                 }
               },
-              child: Text('Confirm Password'),
+              child: const Text('Confirm Password'),
             ),
           ],
         ),

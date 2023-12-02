@@ -20,7 +20,7 @@ class _RegisterPageState extends State<RegisterPage> {
     return Scaffold(
         body: SafeArea(
       child: Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
@@ -41,47 +41,47 @@ class _RegisterPageState extends State<RegisterPage> {
                 Expanded(
                   child: TextFormField(
                     controller: firstNameController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         labelText: 'First Name', border: OutlineInputBorder()),
                   ),
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Expanded(
                   child: TextFormField(
                     controller: lastNameController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         labelText: 'Last Name', border: OutlineInputBorder()),
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             TextFormField(
               controller: dobController,
               decoration: InputDecoration(
                 labelText: 'Date of Birth',
-                border: OutlineInputBorder(),
+                border: const OutlineInputBorder(),
                 suffixIcon: IconButton(
-                  icon: Icon(Icons.calendar_today),
+                  icon: const Icon(Icons.calendar_today),
                   onPressed: () {},
                 ),
               ),
               readOnly: true,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             TextFormField(
               controller: phoneNumberController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                   labelText: 'Phone Number', border: OutlineInputBorder()),
               keyboardType: TextInputType.phone,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             TextFormField(
               controller: passwordController,
               obscureText: !_isPasswordVisible,
               decoration: InputDecoration(
                 labelText: 'Password',
-                border: OutlineInputBorder(),
+                border: const OutlineInputBorder(),
                 suffixIcon: IconButton(
                   icon: Icon(
                     _isPasswordVisible
@@ -97,25 +97,28 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               // Validation logic can be added here
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color.fromRGBO(127, 90, 240, 1),
+              ),
               onPressed: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => LoginPage()),
+                  MaterialPageRoute(builder: (context) => const LoginPage()),
                 );
               },
-              child: Text('Register'),
+              child: const Text('Register'),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             GestureDetector(
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => LoginPage()),
+                  MaterialPageRoute(builder: (context) => const LoginPage()),
                 );
               },
-              child: Text('Already have an account? Login'),
+              child: const Text('Already have an account? Login'),
             ),
           ],
         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tubes_ui/view/booking.dart';
+import 'package:tubes_ui/view/home/openCar.dart';
 import 'package:tubes_ui/view/profile/profile.dart';
 import 'package:tubes_ui/view/profile/promo.dart';
 
@@ -14,8 +15,12 @@ class _HomepageState extends State<Homepage> {
   int _selectedIndex = 0;
 
   static List<Widget> _widgetOptions = <Widget>[
-    BookPage(),
-    ProfilePage(),
+    Center(
+      child: BookPage(),
+    ),
+    Center(
+      child: ProfilePage(),
+    )
   ];
 
   void _onItemTapped(int index) {
@@ -33,14 +38,14 @@ class _HomepageState extends State<Homepage> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
-        leading: Icon(
+        leading: const Icon(
           Icons.location_on,
           color: Colors.black,
         ),
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'Your Location',
               style: TextStyle(
                 color: Colors.black,
@@ -48,7 +53,7 @@ class _HomepageState extends State<Homepage> {
             ),
             Text(
               location,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.black,
               ),
             ),
@@ -62,7 +67,7 @@ class _HomepageState extends State<Homepage> {
                 MaterialPageRoute(builder: (context) => ProfilePage()),
               );
             },
-            child: CircleAvatar(
+            child: const CircleAvatar(
               backgroundImage: AssetImage('assets/images/gojohh.jpg'),
             ),
           ),
@@ -70,7 +75,7 @@ class _HomepageState extends State<Homepage> {
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
@@ -90,7 +95,7 @@ class _HomepageState extends State<Homepage> {
                 decoration: InputDecoration(
                   hintText: 'Search...',
                   contentPadding:
-                      EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
+                      const EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
                   border: InputBorder.none,
                   suffixIcon: ElevatedButton(
                     style: ElevatedButton.styleFrom(
@@ -100,13 +105,13 @@ class _HomepageState extends State<Homepage> {
                     onPressed: () {
                       // Search logic using searchQuery
                     },
-                    child: Icon(Icons.search, color: Colors.black),
+                    child: const Icon(Icons.search, color: Colors.black),
                   ),
                 ),
               ),
             ),
-            SizedBox(height: 10),
-            Text(
+            const SizedBox(height: 10),
+            const Text(
               'Discover the latest deals and updates',
               style: TextStyle(
                 fontSize: 18,
@@ -121,9 +126,9 @@ class _HomepageState extends State<Homepage> {
                 );
               },
               child: Container(
-                margin: EdgeInsets.symmetric(vertical: 10),
+                margin: const EdgeInsets.symmetric(vertical: 10),
                 decoration: BoxDecoration(
-                  image: DecorationImage(
+                  image: const DecorationImage(
                       image: AssetImage('assets/images/promo.jpeg'),
                       fit: BoxFit.cover),
                   borderRadius: BorderRadius.circular(10),
@@ -143,16 +148,23 @@ class _HomepageState extends State<Homepage> {
                 ),
               ),
             ),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'Popular cars near you',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Card(
-              margin: EdgeInsets.symmetric(vertical: 10),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => OpenCarPage()),
+                );
+              },
+              child: Card(
+              margin: const EdgeInsets.symmetric(vertical: 10),
               child: Container(
                 width: 200,
                 height: 400,
@@ -161,7 +173,7 @@ class _HomepageState extends State<Homepage> {
                   children: [
                     ClipRRect(
                       borderRadius:
-                          BorderRadius.vertical(top: Radius.circular(4)),
+                          const BorderRadius.vertical(top: Radius.circular(4)),
                       child: Image.asset(
                         'assets/images/car1.jpeg',
                         width: 200,
@@ -169,7 +181,7 @@ class _HomepageState extends State<Homepage> {
                         fit: BoxFit.cover,
                       ),
                     ),
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.all(12),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -212,23 +224,36 @@ class _HomepageState extends State<Homepage> {
                             children: [
                               Row(
                                 children: [
-                                  Icon(Icons.check, size: 18),
+                                  Icon(
+                                    Icons.check,
+                                    size: 18,
+                                    color: Color.fromRGBO(127, 90, 240, 1),
+                                  ),
                                   SizedBox(width: 4),
                                   Text('Instant Confirmation'),
                                 ],
                               ),
                               Row(
                                 children: [
-                                  Icon(Icons.location_on, size: 18),
+                                  Icon(
+                                    Icons.location_on,
+                                    size: 18,
+                                    color: Color.fromRGBO(127, 90, 240, 1),
+                                  ),
                                   SizedBox(width: 4),
                                   Text('Yogyakarta'),
                                 ],
                               ),
                               SizedBox(height: 8),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Icon(Icons.check, size: 18),
+                                  Icon(
+                                    Icons.check,
+                                    size: 18,
+                                    color: Color.fromRGBO(127, 90, 240, 1),
+                                  ),
                                   SizedBox(width: 4),
                                   Text('Free Cancellation'),
                                 ],
@@ -239,8 +264,10 @@ class _HomepageState extends State<Homepage> {
                                   SizedBox(width: 4),
                                   Text(
                                     'Rp 500.000',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Color.fromRGBO(127, 90, 240, 1),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -253,7 +280,8 @@ class _HomepageState extends State<Homepage> {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            ),
+            const SizedBox(height: 20),
             Text(
               'Popular City',
               style: TextStyle(
@@ -269,15 +297,15 @@ class _HomepageState extends State<Homepage> {
                 );
               },
               child: Container(
-                margin: EdgeInsets.symmetric(vertical: 10),
+                margin: const EdgeInsets.symmetric(vertical: 10),
                 decoration: BoxDecoration(
-                  image: DecorationImage(
+                  image: const DecorationImage(
                       image: AssetImage('assets/images/promo.jpeg'),
                       fit: BoxFit.cover),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 height: 100,
-                child: Center(
+                child: const Center(
                   child: Text(
                     'YOGYAKARTA',
                     style: TextStyle(
@@ -299,7 +327,7 @@ class _HomepageState extends State<Homepage> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
+        items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',

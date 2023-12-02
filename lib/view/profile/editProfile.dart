@@ -26,9 +26,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
                         MaterialPageRoute(builder: (context) => ProfilePage()),
                       );
                     },
-                    child: Icon(Icons.arrow_back),
+                    child: const Icon(Icons.arrow_back),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   GestureDetector(
                     onTap: () {
                       Navigator.pushReplacement(
@@ -36,12 +36,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
                         MaterialPageRoute(builder: (context) => NotificationPage()),
                       );
                     },
-                    child: Icon(Icons.notifications),
+                    child: const Icon(Icons.notifications),
                   )
                 ],
               ),
-              SizedBox(height: 16.0),
-              Center(
+              const SizedBox(height: 16.0),
+              const Center(
                 child: Column(
                   children: [
                     CircleAvatar(
@@ -61,21 +61,21 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   ],
                 ),
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               Container(
-                padding: EdgeInsets.only(top: 20.0),
-                decoration: BoxDecoration(
+                padding: const EdgeInsets.only(top: 20.0),
+                decoration: const BoxDecoration(
                   border: Border(
                     top: BorderSide(width: 1.0, color: Colors.grey),
                   ),
                 ),
                 child:
-                Text(
+                const Text(
                   'Profile Details',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,),
                 ),
               ),
-              SizedBox(height: 8.0),
+              const SizedBox(height: 8.0),
               buildEditableCard('Email', 'gojosatorukeren@gmail.com'),
               buildEditableCard('Date of Birth', '2 Desember 1989'),
               buildEditableCard('Phone Number', '000000000000'),
@@ -89,20 +89,20 @@ class _EditProfilePageState extends State<EditProfilePage> {
   Widget buildEditableCard(String title, String content) {
     return Card(
       elevation: 2,
-      margin: EdgeInsets.symmetric(vertical: 8.0),
+      margin: const EdgeInsets.symmetric(vertical: 8.0),
       child: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               title,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 4.0),
+            const SizedBox(height: 4.0),
             Text(
               content,
-              style: TextStyle(fontSize: 14),
+              style: const TextStyle(fontSize: 14),
             ),
           ],
         ),

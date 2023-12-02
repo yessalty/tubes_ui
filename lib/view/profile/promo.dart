@@ -12,7 +12,7 @@ class _PromoPageState extends State<PromoPage> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -21,24 +21,21 @@ class _PromoPageState extends State<PromoPage> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => ProfilePage()),
-                      );
+                      Navigator.pop(context);
                     },
-                    child: Icon(Icons.arrow_back),
+                    child: const Icon(Icons.arrow_back),
                   ),
-                  Text(
+                  const Text(
                     'Promo',
                     style: TextStyle(
                       fontSize: 24.0,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(width: 40.0),
+                  const SizedBox(width: 40.0),
                 ],
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               buildPromoCard(),
             ],
           ),
@@ -48,7 +45,7 @@ class _PromoPageState extends State<PromoPage> {
   }
 
   Widget buildPromoCard() {
-    return Card(
+    return const Card(
       elevation: 2.0,
       child: ListTile(
         leading: Column(

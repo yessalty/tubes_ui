@@ -26,9 +26,9 @@ class _ProfilePageState extends State<ProfilePage> {
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
                   children: [
-                    Icon(Icons.location_on),
-                    SizedBox(width: 8.0),
-                    Column(
+                    const Icon(Icons.location_on),
+                    const SizedBox(width: 8.0),
+                    const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
@@ -41,7 +41,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         ),
                       ],
                     ),
-                    Spacer(),
+                    const Spacer(),
                     GestureDetector(
                       onTap: () {
                         Navigator.pushReplacement(
@@ -49,24 +49,24 @@ class _ProfilePageState extends State<ProfilePage> {
                         MaterialPageRoute(builder: (context) => NotificationPage()),
                       );
                       },
-                      child: Icon(Icons.notifications),
+                      child: const Icon(Icons.notifications),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 16.0),
-              CircleAvatar(
+              const SizedBox(height: 16.0),
+              const CircleAvatar(
                 radius: 50,
                 backgroundImage: AssetImage('assets/images/gojohh.jpg'),
               ),
-              SizedBox(height: 8.0),
-              Center(
+              const SizedBox(height: 8.0),
+              const Center(
                 child: Text(
                   'Gojo Satoru',
                   style: TextStyle(fontSize: 18),
                 ),
               ),
-              SizedBox(height: 8.0),
+              const SizedBox(height: 8.0),
               GestureDetector(
                 onTap: () {
                   Navigator.pushReplacement(
@@ -74,7 +74,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         MaterialPageRoute(builder: (context) => EditProfilePage()),
                       );
                 },
-                child: Center(
+                child: const Center(
                   child: Text(
                     'View and Edit Profile',
                     style: TextStyle(
@@ -85,11 +85,11 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               GridView.count(
                 shrinkWrap: true,
                 crossAxisCount: 3,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 children: [
                   buildCard(
                     icon: Icons.bookmark,
@@ -174,7 +174,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ],
               ),
-              Spacer(),
+              const Spacer(),
               BottomNavigationBar(
                 items: const <BottomNavigationBarItem>[
                   BottomNavigationBarItem(
@@ -210,7 +210,7 @@ class _ProfilePageState extends State<ProfilePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(icon),
-            SizedBox(height: 4.0),
+            const SizedBox(height: 4.0),
             Text(
               title,
               textAlign: TextAlign.center,
