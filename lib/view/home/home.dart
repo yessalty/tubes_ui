@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tubes_ui/view/booking.dart';
 import 'package:tubes_ui/view/home/openCar.dart';
+import 'package:tubes_ui/view/home/popularCity.dart';
 import 'package:tubes_ui/view/profile/profile.dart';
 import 'package:tubes_ui/view/profile/promo.dart';
 
@@ -67,7 +68,6 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  String location = 'Yogyakarta';
   String searchQuery = '';
 
   @override
@@ -208,132 +208,156 @@ class _HomeViewState extends State<HomeView> {
                       child: Card(
                         margin: const EdgeInsets.symmetric(vertical: 10),
                         child: Container(
-                          width: 200,
-                          height: 320,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              ClipRRect(
-                                borderRadius: const BorderRadius.vertical(
-                                    top: Radius.circular(4)),
-                                child: Image.asset(
-                                  'assets/images/car1.jpeg',
-                                  width: 200,
-                                  height: 200,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              const Padding(
-                                padding: EdgeInsets.all(12),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                            width: 200,
+                            height: 320,
+                            child: Stack(
+                              children: [
+                                Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch,
                                   children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          'GR YARIS',
-                                          style: TextStyle(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ],
+                                    ClipRRect(
+                                      borderRadius: const BorderRadius.vertical(
+                                          top: Radius.circular(4)),
+                                      child: Image.asset(
+                                        'assets/images/car1.jpeg',
+                                        width: 200,
+                                        height: 200,
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
-                                    SizedBox(height: 8),
-                                    Row(
-                                      children: [
-                                        Icon(Icons.settings_input_component,
-                                            size: 18),
-                                        SizedBox(width: 4),
-                                        Text('A/T'),
-                                        SizedBox(width: 12),
-                                        Icon(Icons.people, size: 18),
-                                        SizedBox(width: 4),
-                                        Text('5'),
-                                        SizedBox(width: 12),
-                                        Icon(Icons.car_rental, size: 18),
-                                        SizedBox(width: 4),
-                                        Text('2'),
-                                        SizedBox(width: 12),
-                                        Icon(Icons.wb_sunny, size: 18),
-                                        SizedBox(width: 4),
-                                        Text('A/C'),
-                                      ],
-                                    ),
-                                    SizedBox(height: 8),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Row(
-                                          children: [
-                                            Icon(
-                                              Icons.check,
-                                              size: 18,
-                                              color: Color.fromRGBO(
-                                                  127, 90, 240, 1),
-                                            ),
-                                            SizedBox(width: 4),
-                                            Text('Instant Confirmation'),
-                                          ],
-                                        ),
-                                        Row(
-                                          children: [
-                                            Text('Yogyakarta'),
-                                            SizedBox(width: 4),
-                                            Icon(
-                                              Icons.location_on,
-                                              size: 18,
-                                              color: Color.fromRGBO(
-                                                  127, 90, 240, 1),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        SizedBox(height: 8),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Icon(
-                                              Icons.check,
-                                              size: 18,
-                                              color: Color.fromRGBO(
-                                                  127, 90, 240, 1),
-                                            ),
-                                            SizedBox(width: 4),
-                                            Text('Free Cancellation'),
-                                          ],
-                                        ),
-                                        SizedBox(width: 70),
-                                        Row(
-                                          children: [
-                                            Text('Day/'),
-                                            SizedBox(width: 4),
-                                            Text(
-                                              'Rp 500.000',
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                color: Color.fromRGBO(
-                                                    127, 90, 240, 1),
+                                    const Padding(
+                                      padding: EdgeInsets.all(12),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text(
+                                                'GR YARIS',
+                                                style: TextStyle(
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
                                               ),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    )
+                                            ],
+                                          ),
+                                          SizedBox(height: 8),
+                                          Row(
+                                            children: [
+                                              Icon(
+                                                  Icons
+                                                      .settings_input_component,
+                                                  size: 18),
+                                              SizedBox(width: 4),
+                                              Text('A/T'),
+                                              SizedBox(width: 12),
+                                              Icon(Icons.people, size: 18),
+                                              SizedBox(width: 4),
+                                              Text('5'),
+                                              SizedBox(width: 12),
+                                              Icon(Icons.car_rental, size: 18),
+                                              SizedBox(width: 4),
+                                              Text('2'),
+                                              SizedBox(width: 12),
+                                              Icon(Icons.wb_sunny, size: 18),
+                                              SizedBox(width: 4),
+                                              Text('A/C'),
+                                            ],
+                                          ),
+                                          SizedBox(height: 8),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  Icon(
+                                                    Icons.check,
+                                                    size: 18,
+                                                    color: Color.fromRGBO(
+                                                        127, 90, 240, 1),
+                                                  ),
+                                                  SizedBox(width: 4),
+                                                  Text('Instant Confirmation'),
+                                                ],
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Text('Yogyakarta'),
+                                                  SizedBox(width: 4),
+                                                  Icon(
+                                                    Icons.location_on,
+                                                    size: 18,
+                                                    color: Color.fromRGBO(
+                                                        127, 90, 240, 1),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              SizedBox(height: 8),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Icon(
+                                                    Icons.check,
+                                                    size: 18,
+                                                    color: Color.fromRGBO(
+                                                        127, 90, 240, 1),
+                                                  ),
+                                                  SizedBox(width: 4),
+                                                  Text('Free Cancellation'),
+                                                ],
+                                              ),
+                                              SizedBox(width: 70),
+                                              Row(
+                                                children: [
+                                                  Text('Day/'),
+                                                  SizedBox(width: 4),
+                                                  Text(
+                                                    'Rp 500.000',
+                                                    style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color: Color.fromRGBO(
+                                                          127, 90, 240, 1),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    ),
                                   ],
                                 ),
-                              ),
-                            ],
-                          ),
-                        ),
+                                Positioned(
+                                  top: 8,
+                                  right: 8,
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      // Handle love icon tap
+                                    },
+                                    child: const Icon(
+                                      Icons.favorite_border,
+                                      color: Colors.black,
+                                      size: 24,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            )),
                       ),
                     ),
                     const SizedBox(height: 20),
@@ -349,7 +373,7 @@ class _HomeViewState extends State<HomeView> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ProfilePage()),
+                              builder: (context) => PopularCityPage()),
                         );
                       },
                       child: Container(

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tubes_ui/view/login/login.dart';
+import 'package:tubes_ui/view/profile/bookmark.dart';
 import 'package:tubes_ui/view/profile/contactUs.dart';
 import 'package:tubes_ui/view/profile/friendList.dart';
+import 'package:tubes_ui/view/profile/history/history.dart';
 import 'package:tubes_ui/view/profile/payment/payment.dart';
 import 'package:tubes_ui/view/profile/editProfile.dart';
 import 'package:tubes_ui/view/profile/notification.dart';
@@ -95,7 +97,10 @@ class _ProfilePageState extends State<ProfilePage> {
                     icon: Icons.bookmark,
                     title: 'BOOKMARKS',
                     onTap: () {
-                      // Navigate to bookmarks page
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => BookmarkPage()),
+                      );
                     },
                   ),
                   buildCard(
@@ -111,7 +116,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     onTap: () {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => SettingsPage()),
+                        MaterialPageRoute(builder: (context) => const SettingsPage()),
                       );
                     },
                   ),
@@ -119,7 +124,10 @@ class _ProfilePageState extends State<ProfilePage> {
                     icon: Icons.history,
                     title: 'HISTORY',
                     onTap: () {
-                      // Navigate to history page
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => const HistoryPage()),
+                      );
                     },
                   ),
                   buildCard(
@@ -128,7 +136,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     onTap: () {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => PaymentPage()),
+                        MaterialPageRoute(builder: (context) => const PaymentPage()),
                       );
                     },
                   ),
@@ -158,7 +166,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     onTap: () {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => ContactUsPage()),
+                        MaterialPageRoute(builder: (context) => const ContactUsPage()),
                       );
                     },
                   ),
@@ -168,7 +176,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     onTap: () {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => LoginPage()),
+                        MaterialPageRoute(builder: (context) => const LoginPage()),
                       );
                     },
                   ),
