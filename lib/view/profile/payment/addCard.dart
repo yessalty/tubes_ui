@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tubes_ui/view/profile/payment/payment.dart';
 
 class AddCardPage extends StatefulWidget {
+  const AddCardPage({super.key});
+  
   @override
   _AddCardPageState createState() => _AddCardPageState();
 }

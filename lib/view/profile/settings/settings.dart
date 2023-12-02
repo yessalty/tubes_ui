@@ -3,6 +3,8 @@ import 'package:tubes_ui/view/profile/profile.dart';
 import 'package:tubes_ui/view/profile/settings/language.dart';
 
 class SettingsPage extends StatefulWidget {
+  const SettingsPage({super.key});
+  
   @override
   _SettingsPageState createState() => _SettingsPageState();
 }

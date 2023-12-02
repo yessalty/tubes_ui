@@ -3,6 +3,8 @@ import 'package:tubes_ui/view/profile/profile.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContactUsPage extends StatefulWidget {
+  const ContactUsPage({super.key});
+
   @override
   _ContactUsPageState createState() => _ContactUsPageState();
 }

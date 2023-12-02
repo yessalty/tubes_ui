@@ -1,233 +1,239 @@
 import 'package:flutter/material.dart';
+import 'package:tubes_ui/view/home/location.dart';
+import 'package:tubes_ui/view/home/pay.dart';
 
 class BookCarPage extends StatefulWidget {
+  const BookCarPage ({super.key});
+
   @override
   _BookCarPageState createState() => _BookCarPageState();
 }
 
 class _BookCarPageState extends State<BookCarPage> {
+  String _startDateTime = '';
+  String _endDateTime = '';
+  String _pickupLocation = '';
   DateTime _startDate = DateTime.now();
   DateTime _endDate = DateTime.now();
   TimeOfDay _pickupTime = TimeOfDay.now();
   TimeOfDay _returnTime = TimeOfDay.now();
-  bool _isDriverNeeded = false;
+  bool _bookWithDriver = false;
 
   Future<void> _selectStartDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: _startDate,
-      firstDate: DateTime.now(),
-      lastDate: DateTime(2101),
-    );
-    if (picked != null && picked != _startDate) {
+        context: context,
+        initialDate: _startDate,
+        firstDate: DateTime(2023),
+        lastDate: DateTime(2024));
+    if (picked != null && picked != _startDate)
       setState(() {
         _startDate = picked;
       });
-    }
   }
 
   Future<void> _selectEndDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: _endDate,
-      firstDate: _startDate,
-      lastDate: DateTime(2101),
-    );
-    if (picked != null && picked != _endDate) {
+        context: context,
+        initialDate: _endDate,
+        firstDate: DateTime(2023),
+        lastDate: DateTime(2024));
+    if (picked != null && picked != _endDate)
       setState(() {
         _endDate = picked;
       });
-    }
   }
 
-  Future<void> _selectTime(BuildContext context, bool isPickup) async {
-    final TimeOfDay? picked = await showTimePicker(
-      context: context,
-      initialTime: isPickup ? _pickupTime : _returnTime,
-    );
-    if (picked != null) {
+  Future<void> _selectPickupTime(BuildContext context) async {
+    final TimeOfDay? picked =
+        await showTimePicker(context: context, initialTime: _pickupTime);
+    if (picked != null && picked != _pickupTime)
       setState(() {
-        if (isPickup) {
-          _pickupTime = picked;
-        } else {
-          _returnTime = picked;
-        }
+        _pickupTime = picked;
       });
-    }
+  }
+
+  Future<void> _selectReturnTime(BuildContext context) async {
+    final TimeOfDay? picked =
+        await showTimePicker(context: context, initialTime: _returnTime);
+    if (picked != null && picked != _returnTime)
+      setState(() {
+        _returnTime = picked;
+      });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+        body: SafeArea(
+            child: SingleChildScrollView(
+      padding: const EdgeInsets.all(20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                    icon: Icon(Icons.arrow_back),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                  Text(
-                    'Date & Time',
-                    style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(width: 40.0), // Spacer
-                ],
+              IconButton(
+                icon: const Icon(Icons.arrow_back),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
               ),
-              Card(
-                elevation: 4.0,
-                child: Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+              const Text(
+                'Date & Time',
+                style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(width: 40.0),
+            ],
+          ),
+          Card(
+            elevation: 4.0,
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text(
-                            'Book with driver',
-                            style: TextStyle(fontSize: 18.0),
-                          ),
-                          Switch(
-                            value: _isDriverNeeded,
-                            onChanged: (value){
-                              setState(() {
-                                _isDriverNeeded = value;
-                              });
-                            },
-                          ),
-                        ],
+                      const Text(
+                        'Book with driver?',
+                        style: TextStyle(fontSize: 18.0),
                       ),
-                      const SizedBox(height: 10.0,),
-                      const Text("Dont have a driver? Book with the driver"),
+                      Switch(
+                        value: _bookWithDriver,
+                        onChanged: (value) {
+                          setState(() {
+                            _bookWithDriver = value;
+                          });
+                        },
+                      ),
                     ],
                   ),
-                ),
-              ),
-
-              const SizedBox(height: 20.0),
-              const Text('Pick-up Location'),
-              TextFormField(
-                decoration: const InputDecoration(
-                  hintText: 'Enter pick-up location',
-                  suffixIcon: Icon(Icons.location_on),
-                ),
-              ),
-              const SizedBox(height: 20.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text('Start Date'),
-                        InkWell(
-                          onTap: () => _selectStartDate(context),
-                          child: InputDecorator(
-                            decoration: const InputDecoration(
-                              border: OutlineInputBorder(),
-                              suffixIcon: Icon(Icons.calendar_today),
-                            ),
-                            child: Text('${_startDate.toLocal()}'.split(' ')[0]),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(width: 20.0),
-                  Expanded(
-                    flex: 1,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text('End Date'),
-                        InkWell(
-                          onTap: () => _selectEndDate(context),
-                          child: InputDecorator(
-                            decoration: const InputDecoration(
-                              border: OutlineInputBorder(),
-                              suffixIcon: Icon(Icons.calendar_today),
-                            ),
-                            child: Text('${_endDate.toLocal()}'.split(' ')[0]),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  const SizedBox(height: 10.0),
+                  const Text("Don't have a driver? Book with the driver"),
                 ],
               ),
-              SizedBox(height: 20.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Pick-up Time'),
-                        InkWell(
-                          onTap: () => _selectTime(context, true),
-                          child: InputDecorator(
-                            decoration: const InputDecoration(
-                              border: OutlineInputBorder(),
-                              suffixIcon: Icon(Icons.keyboard_arrow_down),
-                            ),
-                            child: Text('${_pickupTime.format(context)}'),
-                          ),
-                        ),
-                      ],
-                    ),
+            ),
+          ),
+          const SizedBox(height: 20.0),
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: TextFormField(
+                  decoration: const InputDecoration(
+                    labelText: 'Pick-up Location',
+                    hintText: 'Enter pick-up Location',
+                    suffixIcon: Icon(Icons.location_on),
+                    border: OutlineInputBorder(),
                   ),
-                  SizedBox(width: 20.0),
-                  Expanded(
-                    flex: 1,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Return Time'),
-                        InkWell(
-                          onTap: () => _selectTime(context, false),
-                          child: InputDecorator(
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(),
-                              suffixIcon: Icon(Icons.keyboard_arrow_down),
-                            ),
-                            child: Text('${_returnTime.format(context)}'),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 40.0),
-              Center(
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: Size(450, 40),
-                    backgroundColor: const Color.fromRGBO(127, 90, 240, 1),
-                  ),
-                  onPressed: () {
-                    // Add functionality to book the car
-                  },
-                  child: Text('Booking'),
                 ),
               ),
             ],
           ),
-        ),
+          const SizedBox(height: 20),
+          Row(
+            children: [
+              Expanded(
+                child: TextFormField(
+                  readOnly: false,
+                  controller: TextEditingController(),
+                  onTap: () {
+                    _selectStartDate(context);
+                  },
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Start Date',
+                    hintText: 'Select Start Date',
+                    suffixIcon: Icon(Icons.calendar_today),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
+          Row(
+            children: [
+              Expanded(
+                child: TextFormField(
+                  readOnly: false,
+                  controller: TextEditingController(),
+                  onTap: () {
+                    _selectEndDate(context);
+                  },
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'End Date',
+                    hintText: 'Select End Date',
+                    suffixIcon: Icon(Icons.calendar_today),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
+          Row(
+            children: [
+              Expanded(
+                child: TextFormField(
+                  readOnly: false,
+                  controller: TextEditingController(),
+                  onTap: () {
+                    _selectPickupTime(context);
+                  },
+                  decoration: const InputDecoration(
+                    labelText: 'Pick-up Time',
+                    border: OutlineInputBorder(),
+                    suffixIcon: Icon(Icons.arrow_drop_down),
+                  ),
+                ),
+              ),
+              const SizedBox(width: 20),
+              Expanded(
+                child: TextFormField(
+                  readOnly: false,
+                  controller: TextEditingController(),
+                  onTap: () {
+                    _selectReturnTime(context);
+                  },
+                  decoration: const InputDecoration(
+                    labelText: 'Return Time',
+                    border: OutlineInputBorder(),
+                    suffixIcon: Icon(Icons.arrow_drop_down),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 100.0,
+          ),
+          Center(
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                minimumSize: Size(450, 40),
+                backgroundColor: const Color.fromRGBO(127, 90, 240, 1),
+              ),
+              onPressed: () {
+                setState(() {
+                  _startDateTime = _startDateTime.toString();
+                  _endDateTime = _endDateTime.toString();
+                  _pickupLocation = '';
+                });
+                Navigator.pushReplacement(
+                  
+                  context,
+                  MaterialPageRoute(builder: (context) => PayPage(
+                    startDateTime: _startDateTime,
+                    endDateTime: _endDateTime,
+                    pickupLocation: _pickupLocation)),
+                );
+              },
+              child: Text('Booking'),
+            ),
+          ),
+        ],
       ),
-    );
+    )));
   }
 }
-

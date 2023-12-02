@@ -3,6 +3,8 @@ import 'package:tubes_ui/view/profile/notification.dart';
 import 'package:tubes_ui/view/profile/profile.dart';
 
 class EditProfilePage extends StatefulWidget {
+  const EditProfilePage({super.key});
+
   @override
   _EditProfilePageState createState() => _EditProfilePageState();
 }

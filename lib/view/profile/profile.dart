@@ -175,22 +175,6 @@ class _ProfilePageState extends State<ProfilePage> {
                 ],
               ),
               const Spacer(),
-              BottomNavigationBar(
-                items: const <BottomNavigationBarItem>[
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.home),
-                    label: 'Home',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.directions_car),
-                    label: 'Bookings',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.person),
-                    label: 'Profile',
-                  ),
-                ],
-              ),
             ],
           ),
         ),

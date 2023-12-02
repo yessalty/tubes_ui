@@ -3,6 +3,8 @@ import 'package:tubes_ui/view/profile/payment/addCard.dart';
 import 'package:tubes_ui/view/profile/profile.dart';
 
 class PaymentPage extends StatefulWidget {
+  const PaymentPage({super.key});
+
   @override
   _PaymentPageState createState() => _PaymentPageState();
 }

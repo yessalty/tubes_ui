@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tubes_ui/view/home/bookCar.dart';
 
 class OpenCarPage extends StatefulWidget {
+  const OpenCarPage({super.key});
+  
   @override
   _OpenCarPageState createState() => _OpenCarPageState();
 }
