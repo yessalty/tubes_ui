@@ -3,12 +3,13 @@ import 'package:tubes_ui/view/login/login.dart';
 import 'package:tubes_ui/view/profile/bookmark.dart';
 import 'package:tubes_ui/view/profile/contactUs.dart';
 import 'package:tubes_ui/view/profile/friendList.dart';
-import 'package:tubes_ui/view/profile/history/history.dart';
+import 'package:tubes_ui/view/history/history.dart';
 import 'package:tubes_ui/view/profile/payment/payment.dart';
 import 'package:tubes_ui/view/profile/editProfile.dart';
 import 'package:tubes_ui/view/profile/notification.dart';
 import 'package:tubes_ui/view/profile/promo.dart';
 import 'package:tubes_ui/view/profile/settings/settings.dart';
+import 'package:tubes_ui/view/profile/subscribe.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -104,10 +105,13 @@ class _ProfilePageState extends State<ProfilePage> {
                     },
                   ),
                   buildCard(
-                    icon: Icons.qr_code,
-                    title: 'SCAN QR',
+                    icon: Icons.subscriptions,
+                    title: 'SUBSCRIBE',
                     onTap: () {
-                      // Navigate to scan QR page
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => SubscribePage()),
+                      );
                     },
                   ),
                   buildCard(

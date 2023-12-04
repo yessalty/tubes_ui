@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class PayPage extends StatefulWidget {
-  final String startDateTime; // Data dari BookCarPage: Start Date
-  final String endDateTime; // Data dari BookCarPage: End Date
-  final String pickupLocation; // Data dari BookCarPage: Pickup Location
-
+  final String startDateTime;
+  final String endDateTime;
+  final String pickupLocation;
+  
   const PayPage({
     required this.startDateTime,
     required this.endDateTime,

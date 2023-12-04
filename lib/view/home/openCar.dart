@@ -9,7 +9,7 @@ class OpenCarPage extends StatefulWidget {
 }
 
 class _OpenCarPageState extends State<OpenCarPage> {
-  List<Map<String, dynamic>> _specifications = [
+  final List<Map<String, dynamic>> _specifications = [
     {
       'icon': Icons.battery_full,
       'title': 'Max Power',
@@ -75,15 +75,15 @@ class _OpenCarPageState extends State<OpenCarPage> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Toyota',
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Image.asset(
                     'assets/images/car1.jpeg',
                     height: 200,
@@ -96,11 +96,11 @@ class _OpenCarPageState extends State<OpenCarPage> {
                     style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         SizedBox(
                           height: 120,
                           child: ListView.builder(
@@ -110,7 +110,7 @@ class _OpenCarPageState extends State<OpenCarPage> {
                               return SizedBox(
                                 width: 120,
                                 child: Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 8),
+                                  padding: const EdgeInsets.symmetric(horizontal: 8),
                                   child: Container(
                                     decoration: BoxDecoration(
                                       border: Border.all(color: Colors.black),
@@ -121,11 +121,11 @@ class _OpenCarPageState extends State<OpenCarPage> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Icon(_specifications[index]['icon']),
-                                        SizedBox(height: 5),
+                                        const SizedBox(height: 5),
                                         Text(_specifications[index]['title']),
                                         Text(
                                           _specifications[index]['value'],
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               fontWeight: FontWeight.bold),
                                         ),
                                       ],
@@ -139,34 +139,34 @@ class _OpenCarPageState extends State<OpenCarPage> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 20),
-                  Text(
+                  const SizedBox(height: 20),
+                  const Text(
                     'Car Features',
                     style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   buildFeatureRow(Icons.people, '2 Passengers', '4 Doors'),
                   buildFeatureRow(Icons.ac_unit, 'Snow Tires', 'GPS'),
                   buildFeatureRow(Icons.bluetooth, 'Bluetooth', 'Manual'),
-                  SizedBox(height: 20),
-                  Text(
+                  const SizedBox(height: 20),
+                  const Text(
                     'Review',
                     style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Row(
                     children: [
                       Row(
                         children: List.generate(
                           5,
-                          (index) => Icon(
+                          (index) => const Icon(
                             Icons.star,
                             color: Colors.yellow,
                           ),
                         ),
                       ),
-                      SizedBox(width: 5),
-                      Column(
+                      const SizedBox(width: 5),
+                      const Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text('Mobilnya enak sekali'),
@@ -178,7 +178,7 @@ class _OpenCarPageState extends State<OpenCarPage> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 40),
+                  const SizedBox(height: 40),
                 ],
               ),
             ),
@@ -207,7 +207,7 @@ class _OpenCarPageState extends State<OpenCarPage> {
                 onPressed: () {
                   Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => BookCarPage()),
+                        MaterialPageRoute(builder: (context) => const BookCarPage()),
                       );
                 },
                 child: const Text('Book Now'),
@@ -222,18 +222,18 @@ class _OpenCarPageState extends State<OpenCarPage> {
   Widget buildSpecCard(IconData icon, String title, String value) {
     return Card(
       child: Padding(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: Row(
           children: [
             Icon(icon),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(title),
                 Text(
                   value,
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -245,7 +245,7 @@ class _OpenCarPageState extends State<OpenCarPage> {
 
   Widget buildFeatureRow(IconData leftIcon, String text, String rightText) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 5),
+      padding: const EdgeInsets.symmetric(vertical: 5),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -253,19 +253,19 @@ class _OpenCarPageState extends State<OpenCarPage> {
             children: [
               Icon(
                 leftIcon,
-                color: Color.fromRGBO(127, 90, 240, 1),
+                color: const Color.fromRGBO(127, 90, 240, 1),
               ),
-              SizedBox(width: 10),
+              const SizedBox(width: 10),
               Text(text),
             ],
           ),
           Row(
             children: [
-              Icon(
+              const Icon(
                 Icons.door_back_door,
                 color: Color.fromRGBO(127, 90, 240, 1),
               ),
-              SizedBox(width: 5),
+              const SizedBox(width: 5),
               Text(rightText),
             ],
           ),

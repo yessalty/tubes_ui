@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tubes_ui/view/profile/history/history.dart';
+import 'package:tubes_ui/view/history/history.dart';
 
 class ReviewPage extends StatefulWidget {
   const ReviewPage({Key? key}) : super(key: key);

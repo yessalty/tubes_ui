@@ -26,7 +26,7 @@ class _PromoPageState extends State<PromoPage> {
                     child: const Icon(Icons.arrow_back),
                   ),
                   const Text(
-                    'Promo',
+                    'PROMOS',
                     style: TextStyle(
                       fontSize: 24.0,
                       fontWeight: FontWeight.bold,

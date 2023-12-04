@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tubes_ui/view/profile/history/review.dart';
+import 'package:tubes_ui/view/history/review.dart';
 
 class HistoryPage extends StatefulWidget {
   const HistoryPage({Key? key}) : super(key: key);
@@ -20,23 +20,18 @@ class _HistoryPageState extends State<HistoryPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              const Row(
                 children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: const Icon(Icons.arrow_back),
-                  ),
-                  const Text(
+                  Center(
+                    child: Text(
                     'HISTORY PAYMENT',
                     style: TextStyle(
                       fontSize: 24.0,
                       fontWeight: FontWeight.bold,
                     ),
+                    ),
                   ),
-                  const SizedBox(width: 40.0),
+                  SizedBox(width: 40.0),
                 ],
               ),
               const SizedBox(height: 20.0),
