@@ -55,15 +55,15 @@ class _ReviewPageState extends State<ReviewPage> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Toyota',
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Image.asset(
                     'assets/images/car1.jpeg',
                     height: 200,
@@ -75,7 +75,7 @@ class _ReviewPageState extends State<ReviewPage> {
                     'Quality of the car',
                     style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Row(
                     children: List.generate(5, (index) {
                       return IconButton(
@@ -94,15 +94,15 @@ class _ReviewPageState extends State<ReviewPage> {
                       );
                     }),
                   ),
-                  SizedBox(height: 20),
-                  Text(
+                  const SizedBox(height: 20),
+                  const Text(
                     'Write your Comment',
                     style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextFormField(
                     controller: commentController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       hintText: 'Enter your comment here',
                     ),
@@ -122,27 +122,27 @@ class _ReviewPageState extends State<ReviewPage> {
             children: [
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  minimumSize: Size(100, 50),
+                  minimumSize: const Size(100, 50),
                   backgroundColor: Colors.white,
                   
                 ),
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => HistoryPage()),
+                    MaterialPageRoute(builder: (context) => const HistoryPage()),
                   );
                 },
                 child: const Text('Cancel', style: TextStyle(color: Color.fromRGBO(127, 90, 240, 1)),),
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  minimumSize: Size(100, 50),
+                  minimumSize: const Size(100, 50),
                   backgroundColor: const Color.fromRGBO(127, 90, 240, 1),
                 ),
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => HistoryPage()),
+                    MaterialPageRoute(builder: (context) => const HistoryPage()),
                   );
                 },
                 child: const Text('Save'),

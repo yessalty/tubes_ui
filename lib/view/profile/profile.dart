@@ -9,7 +9,6 @@ import 'package:tubes_ui/view/profile/editProfile.dart';
 import 'package:tubes_ui/view/profile/notification.dart';
 import 'package:tubes_ui/view/profile/promo.dart';
 import 'package:tubes_ui/view/profile/settings/settings.dart';
-import 'package:tubes_ui/view/profile/subscribe/paket.dart';
 import 'package:tubes_ui/view/profile/subscribe/subscribe.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -75,7 +74,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 onTap: () {
                   Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => EditProfilePage()),
+                        MaterialPageRoute(builder: (context) => const EditProfilePage()),
                       );
                 },
                 child: const Center(
@@ -111,7 +110,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     onTap: () {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => SubscribePage()),
+                        MaterialPageRoute(builder: (context) => const SubscribePage()),
                       );
                     },
                   ),

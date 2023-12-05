@@ -100,7 +100,7 @@ class _PaketPageState extends State<PaketPage> {
               ),
             ),
             const Divider(
-                color: Colors.grey), // Garis di antara harga dan deskripsi
+                color: Colors.grey),
             const SizedBox(height: 8),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -112,8 +112,8 @@ class _PaketPageState extends State<PaketPage> {
                         children: [
                           Icon(
                             iconData,
-                            color: Colors.green, // Warna ikon
-                            size: 16, // Atur ukuran ikon sesuai kebutuhan
+                            color: Colors.green,
+                            size: 16,
                           ),
                           const SizedBox(width: 8),
                           Flexible(
@@ -146,7 +146,7 @@ class _PaketPageState extends State<PaketPage> {
                         maxHeight: maxHeight,
                       ),
                       child: buildCombinedBottomSheet(
-                          'subsName'),
+                          'BRONZE'),
                     );
                   },
                 );
@@ -191,19 +191,25 @@ class _PaketPageState extends State<PaketPage> {
 
   Widget buildCombinedBottomSheet(String subscriptionType) {
     String subsName = '';
+    String subsPrice = '';
+    String description = '';
 
     switch (subscriptionType) {
       case 'Bronze':
         subsName = 'BRONZE';
+        subsPrice = '100.000/bulan';
         break;
       case 'Silver':
         subsName = 'SILVER';
+        subsPrice = '200.000/bulan';
         break;
       case 'Gold':
         subsName = 'GOLD';
+        subsPrice = '300.000/bulan';
         break;
       default:
-        subsName = 'GR YARIS';
+        subsName = 'BRONZE';
+        subsPrice = '/bulan';
     }
     return Column(
       children: [
@@ -231,7 +237,7 @@ class _PaketPageState extends State<PaketPage> {
                         ),
                       ),
                       const Text(
-                        '2 Passengers',
+                        'subsPrice',
                         style: TextStyle(
                           fontSize: 16,
                           color: Colors.white,
@@ -295,14 +301,7 @@ class _PaketPageState extends State<PaketPage> {
                   ),
                 ],
               ),
-              const SizedBox(height: 10),
-              const Text(
-                'Pick-up Location',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                ),
-              ),
+              
               const SizedBox(height: 10),
               const Text(
                 'Payment',
@@ -341,9 +340,12 @@ class _PaketPageState extends State<PaketPage> {
                       backgroundColor: const Color.fromRGBO(127, 90, 240, 1),
                     ),
                     onPressed: () {
-                      // Add functionality for Booking
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => SubscribePage()),
+                      );
                     },
-                    child: const Text('Booking'),
+                    child: const Text('Beli'),
                   ),
                 ],
               ),

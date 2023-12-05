@@ -33,7 +33,7 @@ class _SubscribePageState extends State<SubscribePage> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        Navigator.pushReplacement(
+                        Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => ProfilePage()),
                       );
@@ -77,7 +77,7 @@ class _SubscribePageState extends State<SubscribePage> {
                   onPressed: () {
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => PaketPage()),
+                      MaterialPageRoute(builder: (context) => const PaketPage()),
                     );
                   },
                   child: const Text('MULAI'),

@@ -42,7 +42,7 @@ class _BookmarkPageState extends State<BookmarkPage> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => OpenCarPage()),
+                  MaterialPageRoute(builder: (context) => const OpenCarPage()),
                 );
               },
               child: Card(

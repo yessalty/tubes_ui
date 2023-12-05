@@ -288,7 +288,6 @@ class _OpenCarPageState extends State<OpenCarPage> {
   }
 
   Widget buildCombinedBottomSheet() {
-    
     return Column(
       children: [
         Container(
@@ -419,7 +418,10 @@ class _OpenCarPageState extends State<OpenCarPage> {
                 children: [
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromRGBO(127, 90, 240, 1),
+                      primary: const Color.fromRGBO(127, 90, 240, 1),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
                     ),
                     onPressed: () {
                       // Add functionality for Print PDF
@@ -428,7 +430,10 @@ class _OpenCarPageState extends State<OpenCarPage> {
                   ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromRGBO(127, 90, 240, 1),
+                      primary: const Color.fromRGBO(127, 90, 240, 1),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
                     ),
                     onPressed: () {
                       // Add functionality for Booking

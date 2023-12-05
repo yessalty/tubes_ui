@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tubes_ui/view/booking.dart';
 import 'package:tubes_ui/view/history/history.dart';
 import 'package:tubes_ui/view/home/bookCar.dart';
 import 'package:tubes_ui/view/home/openCar.dart';
@@ -26,7 +25,7 @@ class _HomepageState extends State<Homepage> {
   late String _selectedCar;
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
   }
 
@@ -36,9 +35,9 @@ class _HomepageState extends State<Homepage> {
     });
   }
 
-  List<Widget> _widgetOptions = <Widget>[
-    HomeView(),
-    HistoryPage(),
+  final List<Widget> _widgetOptions = <Widget>[
+    const HomeView(),
+    const HistoryPage(),
     ProfilePage(),
   ];
 
@@ -208,26 +207,28 @@ class _HomeViewState extends State<HomeView> {
                     Column(
                       children: [
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             const Text(
                               'Your Cart',
                               style: TextStyle(
-                                fontSize: 18,
+                                fontSize: 20,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
+                            const SizedBox(width: 20,),
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor:
-                                    const Color.fromRGBO(127, 90, 240, 1),
-                                
+                                primary: const Color.fromRGBO(127, 90, 240, 1),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
                               ),
                               onPressed: () {
                                 Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => BookCarPage()),
+                                      builder: (context) =>
+                                          const BookCarPage()),
                                 );
                               },
                               child: const Text('Add'),
@@ -241,11 +242,12 @@ class _HomeViewState extends State<HomeView> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => OpenCarPage()),
+                              builder: (context) => const OpenCarPage()),
                         );
                       },
                       child: Card(
                         margin: const EdgeInsets.symmetric(vertical: 10),
+                        color: const Color.fromARGB(255, 208, 205, 205),
                         child: Container(
                             width: 200,
                             height: 320,
@@ -412,7 +414,7 @@ class _HomeViewState extends State<HomeView> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => PopularCityPage()),
+                              builder: (context) => const PopularCityPage()),
                         );
                       },
                       child: Container(

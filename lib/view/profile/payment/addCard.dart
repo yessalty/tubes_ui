@@ -9,10 +9,10 @@ class AddCardPage extends StatefulWidget {
 }
 
 class _AddCardPageState extends State<AddCardPage> {
-  TextEditingController _cardNumberController = TextEditingController();
-  TextEditingController _expiryMonthController = TextEditingController();
-  TextEditingController _expiryYearController = TextEditingController();
-  TextEditingController _cnnController = TextEditingController();
+  final TextEditingController _cardNumberController = TextEditingController();
+  final TextEditingController _expiryMonthController = TextEditingController();
+  final TextEditingController _expiryYearController = TextEditingController();
+  final TextEditingController _cnnController = TextEditingController();
 
   @override
   void dispose() {
@@ -39,7 +39,7 @@ class _AddCardPageState extends State<AddCardPage> {
                     onTap: () {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => PaymentPage()),
+                        MaterialPageRoute(builder: (context) => const PaymentPage()),
                       );
                     },
                     child: const Icon(Icons.arrow_back),
@@ -82,7 +82,7 @@ class _AddCardPageState extends State<AddCardPage> {
                   onPressed: () {
                     Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => PaymentPage()),
+                        MaterialPageRoute(builder: (context) => const PaymentPage()),
                       );
                   },
                   child: const Text('Add'),

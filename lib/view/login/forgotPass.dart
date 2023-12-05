@@ -20,14 +20,14 @@ class _ForgotPassState extends State<ForgotPass> {
           onPressed: () {
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(builder: (context) => LoginPage())
+              MaterialPageRoute(builder: (context) => const LoginPage())
             )
             ;
           },
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
