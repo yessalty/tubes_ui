@@ -34,9 +34,10 @@ class _SubscribePageState extends State<SubscribePage> {
                     GestureDetector(
                       onTap: () {
                         Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => ProfilePage()),
-                      );
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ProfilePage()),
+                        );
                       },
                       child: const Icon(Icons.arrow_back),
                     ),
@@ -51,13 +52,11 @@ class _SubscribePageState extends State<SubscribePage> {
                   ],
                 ),
                 const SizedBox(height: 20.0),
-
                 const CircleAvatar(
                   radius: 50.0,
                   backgroundImage: AssetImage('assets/images/checkmark.png'),
                 ),
                 const SizedBox(height: 20.0),
-                // Teks berdasarkan jenis langganan
                 Text(
                   'YOUR ACCOUNT IS $subscriptionType',
                   style: const TextStyle(
@@ -65,6 +64,14 @@ class _SubscribePageState extends State<SubscribePage> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+                const SizedBox(height: 20.0),
+                // const Text(
+                //   'Subscribe to get a free and amazing offers and other cool things',
+                //   style: TextStyle(
+                //     fontSize: 14.0,
+                //     fontWeight: FontWeight.bold,
+                //   ),
+                // ),
                 const SizedBox(height: 20.0),
 
                 ElevatedButton(
@@ -77,7 +84,8 @@ class _SubscribePageState extends State<SubscribePage> {
                   onPressed: () {
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => const PaketPage()),
+                      MaterialPageRoute(
+                          builder: (context) => const PaketPage()),
                     );
                   },
                   child: const Text('MULAI'),

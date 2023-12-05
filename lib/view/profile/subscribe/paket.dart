@@ -15,54 +15,58 @@ class _PaketPageState extends State<PaketPage> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => SubscribePage()),
-                      );
-                    },
-                    child: const Icon(Icons.arrow_back),
-                  ),
-                  const Text(
-                    'SUBSCRIBES',
-                    style: TextStyle(
-                      fontSize: 24.0,
-                      fontWeight: FontWeight.bold,
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SubscribePage(),
+                          ),
+                        );
+                      },
+                      child: const Icon(Icons.arrow_back),
                     ),
-                  ),
-                  const SizedBox(width: 40.0),
-                ],
-              ),
-              const SizedBox(height: 20),
-              _buildSubscriptionCard(
-                'Bronze',
-                'Rp 100.000/bulan',
-                'Layanan pelanggan standar\nDiskon 5% untuk setiap penyewaan',
-                Icons.check,
-              ),
-              const SizedBox(height: 20),
-              _buildSubscriptionCard(
-                'Silver',
-                'Rp 200.000/bulan',
-                'Layanan pelanggan prioritas 24/7\nDiskon 10% untuk setiap penyewaan',
-                Icons.check,
-              ),
-              const SizedBox(height: 20),
-              _buildSubscriptionCard(
-                'Gold',
-                'Rp 300.000/bulan',
-                'Layanan pelanggan VIP 24/7 dengan asisten pribadi\nDiskon 20% untuk setiap penyewaan\nAsuransi lengkap untuk keamanan tambahan',
-                Icons.check, // atau ikon lainnya yang sesuai
-              ),
-            ],
+                    const Text(
+                      'SUBSCRIBES',
+                      style: TextStyle(
+                        fontSize: 24.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(width: 40.0),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                _buildSubscriptionCard(
+                  'Bronze',
+                  'Rp 100.000/bulan',
+                  'Layanan pelanggan standar\nDiskon 5% untuk setiap penyewaan',
+                  Icons.check,
+                ),
+                const SizedBox(height: 20),
+                _buildSubscriptionCard(
+                  'Silver',
+                  'Rp 200.000/bulan',
+                  'Layanan pelanggan prioritas 24/7\nDiskon 10% untuk setiap penyewaan',
+                  Icons.check,
+                ),
+                const SizedBox(height: 20),
+                _buildSubscriptionCard(
+                  'Gold',
+                  'Rp 300.000/bulan',
+                  'Layanan pelanggan VIP 24/7 dengan asisten pribadi\nDiskon 20% untuk setiap penyewaan\nAsuransi lengkap untuk keamanan tambahan',
+                  Icons.check,
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -75,94 +79,110 @@ class _PaketPageState extends State<PaketPage> {
 
     return Card(
       elevation: 4.0,
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+      child: ClipRect(
+        child: Stack(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  title,
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+            Container(
+              color: _getColorForSubscriptionType(title),
+              height:
+                  70,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 8),
-            Text(
-              price,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const Divider(
-                color: Colors.grey),
-            const SizedBox(height: 8),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: descriptionLines
-                  .map(
-                    (line) => Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 4.0),
-                      child: Row(
-                        children: [
-                          Icon(
-                            iconData,
-                            color: Colors.green,
-                            size: 16,
-                          ),
-                          const SizedBox(width: 8),
-                          Flexible(
-                            child: Text(
-                              line,
-                              style: const TextStyle(
-                                fontSize: 14,
-                                color: Colors.grey,
-                              ),
+                  const SizedBox(height: 8),
+                  Text(
+                    price,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const Divider(color: Colors.grey),
+                  const SizedBox(height: 8),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: descriptionLines
+                        .map(
+                          (line) => Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 4.0),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  iconData,
+                                  color: Colors.green,
+                                  size: 16,
+                                ),
+                                const SizedBox(width: 8),
+                                Flexible(
+                                  child: Text(
+                                    line,
+                                    style: const TextStyle(
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                        ],
+                        )
+                        .toList(),
+                  ),
+                  const SizedBox(height: 16),
+                  ElevatedButton(
+                    onPressed: () {
+                      showModalBottomSheet(
+                        context: context,
+                        isScrollControlled: true,
+                        builder: (BuildContext context) {
+                          double maxHeight =
+                              MediaQuery.of(context).size.height * 0.60;
+
+                          return Container(
+                            constraints: BoxConstraints(
+                              maxHeight: maxHeight,
+                            ),
+                            child: buildCombinedBottomSheet('BRONZE'),
+                          );
+                        },
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: const Color.fromRGBO(127, 90, 240, 1),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0),
                       ),
                     ),
-                  )
-                  .toList(),
-            ),
-            const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () {
-                showModalBottomSheet(
-                  context: context,
-                  isScrollControlled: true,
-                  builder: (BuildContext context) {
-                    double maxHeight =
-                        MediaQuery.of(context).size.height * 0.65;
-
-                    return Container(
-                      constraints: BoxConstraints(
-                        maxHeight: maxHeight,
-                      ),
-                      child: buildCombinedBottomSheet(
-                          'BRONZE'),
-                    );
-                  },
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                primary: const Color.fromRGBO(127, 90, 240, 1),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20.0),
-                ),
+                    child: const Text('Mulai'),
+                  ),
+                ],
               ),
-              child: const Text('Mulai'),
             ),
           ],
         ),
       ),
     );
+  }
+
+  Color _getColorForSubscriptionType(String subscriptionType) {
+    switch (subscriptionType) {
+      case 'Bronze':
+        return Colors.brown;
+      case 'Silver':
+        return Colors.grey;
+      case 'Gold':
+        return Colors.amber;
+      default:
+        return Colors.transparent;
+    }
   }
 
   Widget buildSpecCard(IconData icon, String title, String value) {
@@ -198,18 +218,25 @@ class _PaketPageState extends State<PaketPage> {
       case 'Bronze':
         subsName = 'BRONZE';
         subsPrice = '100.000/bulan';
+        description =
+            'Layanan pelanggan standar, diskon 5% untuk setiap penyewaan.';
         break;
       case 'Silver':
         subsName = 'SILVER';
         subsPrice = '200.000/bulan';
+        description =
+            'Layanan pelanggan prioritas 24/7, diskon 10% untuk setiap penyewaan.';
         break;
       case 'Gold':
         subsName = 'GOLD';
         subsPrice = '300.000/bulan';
+        description =
+            'Layanan pelanggan VIP 24/7 dengan asisten pribadi, diskon 20% untuk setiap penyewaan, asuransi lengkap untuk keamanan tambahan.';
         break;
       default:
-        subsName = 'BRONZE';
-        subsPrice = '/bulan';
+        subsName = 'Tipe paket tidak tersedia';
+        subsPrice = 'Harga tidak tersedia';
+        description = 'Deskripsi tidak tersedia';
     }
     return Column(
       children: [
@@ -282,26 +309,27 @@ class _PaketPageState extends State<PaketPage> {
                   fontSize: 20,
                 ),
               ),
-              Row(
-                children: [
-                  Expanded(
-                    child: buildSpecCard(
-                      Icons.calendar_today,
-                      'Start',
-                      'Select start date',
-                    ),
+              const SizedBox(height: 10),
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Row(
+                    children: [
+                      const Icon(Icons.check),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Benefit:'),
+                          Text(description),
+                        ],
+                      )
+                    ],
                   ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: buildSpecCard(
-                      Icons.calendar_today,
-                      'End',
-                      'Select end date',
-                    ),
-                  ),
-                ],
+                ),
               ),
-              
               const SizedBox(height: 10),
               const Text(
                 'Payment',
@@ -342,7 +370,8 @@ class _PaketPageState extends State<PaketPage> {
                     onPressed: () {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => SubscribePage()),
+                        MaterialPageRoute(
+                            builder: (context) => SubscribePage()),
                       );
                     },
                     child: const Text('Beli'),
