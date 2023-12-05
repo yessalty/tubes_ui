@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tubes_ui/view/login/login.dart';
 
 class ForgotPass extends StatefulWidget {
   const ForgotPass({super.key});
@@ -17,7 +18,11 @@ class _ForgotPassState extends State<ForgotPass> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            // Navigate back to login page
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => LoginPage())
+            )
+            ;
           },
         ),
       ),

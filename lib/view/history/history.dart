@@ -72,13 +72,13 @@ class _HistoryPageState extends State<HistoryPage> {
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    minimumSize: Size(30, 25),
+                    minimumSize: const Size(30, 25),
                     backgroundColor: const Color.fromRGBO(127, 90, 240, 1),
                   ),
                   onPressed: () {
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => ReviewPage()),
+                      MaterialPageRoute(builder: (context) => const ReviewPage()),
                     );
                   },
                   child: const Text(
@@ -93,7 +93,7 @@ class _HistoryPageState extends State<HistoryPage> {
               children: [
                 Text(
                   date,
-                  style: TextStyle(color: Colors.grey),
+                  style: const TextStyle(color: Colors.grey),
                 ),
                 const SizedBox(height: 8.0),
                 Text('ID: $id'),
@@ -105,7 +105,7 @@ class _HistoryPageState extends State<HistoryPage> {
               children: [
                 Text(
                   price,
-                  style: TextStyle(fontSize: 18),
+                  style: const TextStyle(fontSize: 18),
                 ),
                 const SizedBox(height: 8.0),
                 Row(
@@ -113,10 +113,10 @@ class _HistoryPageState extends State<HistoryPage> {
                   children: [
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        minimumSize: Size(50, 20),
+                        minimumSize: const Size(50, 20),
                         backgroundColor: Colors.white,
                         side:
-                            BorderSide(color: Color.fromRGBO(127, 90, 240, 1)),
+                            const BorderSide(color: Color.fromRGBO(127, 90, 240, 1)),
                       ),
                       onPressed: () {
                         setState(() {
@@ -134,7 +134,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                     width: 25,
                                     height: 25,
                                     decoration: BoxDecoration(
-                                      color: Color.fromRGBO(0, 33, 206, 1),
+                                      color: const Color.fromRGBO(0, 33, 206, 1),
                                       borderRadius: BorderRadius.circular(5.0),
                                     ),
                                     child: Center(
@@ -143,7 +143,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                         onPressed: () {
                                           // Tambahkan logika saat tombol edit ditekan
                                         },
-                                        icon: Icon(Icons.edit),
+                                        icon: const Icon(Icons.edit),
                                       ),
                                     )),
                                 const SizedBox(width: 3),
@@ -152,7 +152,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                     width: 25,
                                     height: 25,
                                     decoration: BoxDecoration(
-                                      color: Color.fromRGBO(216, 0, 39, 1),
+                                      color: const Color.fromRGBO(216, 0, 39, 1),
                                       borderRadius: BorderRadius.circular(5.0),
                                     ),
                                     child: Center(
@@ -161,12 +161,12 @@ class _HistoryPageState extends State<HistoryPage> {
                                         onPressed: () {
                                           // Tambahkan logika saat tombol hapus ditekan
                                         },
-                                        icon: Icon(Icons.delete),
+                                        icon: const Icon(Icons.delete),
                                       ),
                                     )),
                               ],
                             )
-                          : Text(
+                          : const Text(
                               'Review',
                               style: TextStyle(
                                   color: Color.fromRGBO(127, 90, 240, 1)),

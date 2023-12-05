@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tubes_ui/view/home/bookCar.dart';
 
 class OpenCarPage extends StatefulWidget {
   const OpenCarPage({super.key});
@@ -204,7 +203,7 @@ class _OpenCarPageState extends State<OpenCarPage> {
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color.fromRGBO(127, 90, 240, 1),
+                  backgroundColor: const Color.fromRGBO(127, 90, 240, 1),
                 ),
                 onPressed: () {
                   showModalBottomSheet(
@@ -224,7 +223,7 @@ class _OpenCarPageState extends State<OpenCarPage> {
                     },
                   );
                 },
-                child: Text('Book Now'),
+                child: const Text('Book Now'),
               ),
             ],
           ),
@@ -289,6 +288,7 @@ class _OpenCarPageState extends State<OpenCarPage> {
   }
 
   Widget buildCombinedBottomSheet() {
+    
     return Column(
       children: [
         Container(
@@ -296,7 +296,7 @@ class _OpenCarPageState extends State<OpenCarPage> {
             color: Color.fromRGBO(127, 90, 240, 1),
             borderRadius: BorderRadius.vertical(top: Radius.circular(20.0)),
           ),
-          padding: EdgeInsets.all(25.0),
+          padding: const EdgeInsets.all(25.0),
           child: const Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -349,7 +349,7 @@ class _OpenCarPageState extends State<OpenCarPage> {
             borderRadius: BorderRadius.vertical(top: Radius.circular(20.0)),
             // color: Colors.grey,
           ),
-          padding: EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -369,7 +369,7 @@ class _OpenCarPageState extends State<OpenCarPage> {
                       'Select start date',
                     ),
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   Expanded(
                     child: buildSpecCard(
                       Icons.calendar_today,
@@ -379,61 +379,61 @@ class _OpenCarPageState extends State<OpenCarPage> {
                   ),
                 ],
               ),
-              SizedBox(height: 10),
-              Text(
+              const SizedBox(height: 10),
+              const Text(
                 'Pick-up Location',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               buildSpecCard(
                 Icons.location_on,
                 '',
-                'Select location', // Replace 'Select location' with the actual location from BookCarPage
+                'Select location',
               ),
-              SizedBox(height: 10),
-              Text(
+              const SizedBox(height: 10),
+              const Text(
                 'Payment',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               buildSpecCard(
                 Icons.credit_card,
                 'MasterCard',
                 '**** **** 1234 5678',
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               buildSpecCard(
                 Icons.scanner,
                 '',
                 'SCAN QR',
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color.fromRGBO(127, 90, 240, 1),
+                      backgroundColor: const Color.fromRGBO(127, 90, 240, 1),
                     ),
                     onPressed: () {
                       // Add functionality for Print PDF
                     },
-                    child: Text('Print PDF'),
+                    child: const Text('Print PDF'),
                   ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color.fromRGBO(127, 90, 240, 1),
+                      backgroundColor: const Color.fromRGBO(127, 90, 240, 1),
                     ),
                     onPressed: () {
                       // Add functionality for Booking
                     },
-                    child: Text('Booking'),
+                    child: const Text('Booking'),
                   ),
                 ],
               ),

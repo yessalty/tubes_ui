@@ -9,7 +9,8 @@ import 'package:tubes_ui/view/profile/editProfile.dart';
 import 'package:tubes_ui/view/profile/notification.dart';
 import 'package:tubes_ui/view/profile/promo.dart';
 import 'package:tubes_ui/view/profile/settings/settings.dart';
-import 'package:tubes_ui/view/profile/subscribe.dart';
+import 'package:tubes_ui/view/profile/subscribe/paket.dart';
+import 'package:tubes_ui/view/profile/subscribe/subscribe.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
