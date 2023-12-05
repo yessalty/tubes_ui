@@ -3,7 +3,7 @@ import 'package:tubes_ui/view/home/bookCar.dart';
 
 class OpenCarPage extends StatefulWidget {
   const OpenCarPage({super.key});
-  
+
   @override
   _OpenCarPageState createState() => _OpenCarPageState();
 }
@@ -96,7 +96,8 @@ class _OpenCarPageState extends State<OpenCarPage> {
                     style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -110,7 +111,8 @@ class _OpenCarPageState extends State<OpenCarPage> {
                               return SizedBox(
                                 width: 120,
                                 child: Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                                  padding:
+                                      const EdgeInsets.symmetric(horizontal: 8),
                                   child: Container(
                                     decoration: BoxDecoration(
                                       border: Border.all(color: Colors.black),
@@ -202,15 +204,27 @@ class _OpenCarPageState extends State<OpenCarPage> {
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromRGBO(127, 90, 240, 1),
+                  backgroundColor: Color.fromRGBO(127, 90, 240, 1),
                 ),
                 onPressed: () {
-                  Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => const BookCarPage()),
+                  showModalBottomSheet(
+                    context: context,
+                    isScrollControlled: true,
+                    builder: (BuildContext context) {
+                      double maxHeight =
+                          MediaQuery.of(context).size.height * 0.65;
+
+                      return Container(
+                        constraints: BoxConstraints(
+                          maxHeight: maxHeight,
+                        ),
+                        child:
+                            buildCombinedBottomSheet(), // Panggil widget baru
                       );
+                    },
+                  );
                 },
-                child: const Text('Book Now'),
+                child: Text('Book Now'),
               ),
             ],
           ),
@@ -271,6 +285,162 @@ class _OpenCarPageState extends State<OpenCarPage> {
           ),
         ],
       ),
+    );
+  }
+
+  Widget buildCombinedBottomSheet() {
+    return Column(
+      children: [
+        Container(
+          decoration: const BoxDecoration(
+            color: Color.fromRGBO(127, 90, 240, 1),
+            borderRadius: BorderRadius.vertical(top: Radius.circular(20.0)),
+          ),
+          padding: EdgeInsets.all(25.0),
+          child: const Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'GR YARIS',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        '2 Passengers',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.star,
+                        color: Colors.yellow,
+                      ),
+                      SizedBox(width: 5),
+                      Text(
+                        '4.8',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        Container(
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(20.0)),
+            // color: Colors.grey,
+          ),
+          padding: EdgeInsets.all(20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Overview',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: buildSpecCard(
+                      Icons.calendar_today,
+                      'Start',
+                      'Select start date',
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  Expanded(
+                    child: buildSpecCard(
+                      Icons.calendar_today,
+                      'End',
+                      'Select end date',
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 10),
+              Text(
+                'Pick-up Location',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
+              SizedBox(height: 10),
+              buildSpecCard(
+                Icons.location_on,
+                '',
+                'Select location', // Replace 'Select location' with the actual location from BookCarPage
+              ),
+              SizedBox(height: 10),
+              Text(
+                'Payment',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
+              SizedBox(height: 10),
+              buildSpecCard(
+                Icons.credit_card,
+                'MasterCard',
+                '**** **** 1234 5678',
+              ),
+              SizedBox(height: 10),
+              buildSpecCard(
+                Icons.scanner,
+                '',
+                'SCAN QR',
+              ),
+              SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color.fromRGBO(127, 90, 240, 1),
+                    ),
+                    onPressed: () {
+                      // Add functionality for Print PDF
+                    },
+                    child: Text('Print PDF'),
+                  ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color.fromRGBO(127, 90, 240, 1),
+                    ),
+                    onPressed: () {
+                      // Add functionality for Booking
+                    },
+                    child: Text('Booking'),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }

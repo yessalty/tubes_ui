@@ -39,20 +39,23 @@ class _SubscribePageState extends State<SubscribePage> {
               const SizedBox(height: 20),
               _buildSubscriptionCard(
                 'Bronze',
-                'Mulai dari Rp 25.000/bulan',
-                'Deskripsi untuk paket Bronze di sini...',
+                'Rp 100.000/bulan',
+                'Layanan pelanggan standar\nDiskon 5% untuk setiap penyewaan',
+                Icons.check,
               ),
               const SizedBox(height: 20),
               _buildSubscriptionCard(
                 'Silver',
-                'Mulai dari Rp 75.000/bulan',
-                'Deskripsi untuk paket Silver di sini...',
+                'Rp 200.000/bulan',
+                'Layanan pelanggan prioritas 24/7\nDiskon 10% untuk setiap penyewaan',
+                Icons.check,
               ),
               const SizedBox(height: 20),
               _buildSubscriptionCard(
                 'Gold',
-                'Mulai dari Rp 125.000/bulan',
-                'Deskripsi untuk paket Gold di sini...',
+                'Rp 300.000/bulan',
+                'Layanan pelanggan VIP 24/7 dengan asisten pribadi\nDiskon 20% untuk setiap penyewaan\nAsuransi lengkap untuk keamanan tambahan',
+                Icons.check, // atau ikon lainnya yang sesuai
               ),
             ],
           ),
@@ -62,7 +65,9 @@ class _SubscribePageState extends State<SubscribePage> {
   }
 
   Widget _buildSubscriptionCard(
-      String title, String price, String description) {
+      String title, String price, String description, IconData iconData) {
+    List<String> descriptionLines = description.split('\n');
+
     return Card(
       elevation: 4.0,
       child: Padding(
@@ -70,12 +75,17 @@ class _SubscribePageState extends State<SubscribePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              title,
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: 8),
             Text(
@@ -84,13 +94,50 @@ class _SubscribePageState extends State<SubscribePage> {
                 fontWeight: FontWeight.bold,
               ),
             ),
+            const Divider(
+                color: Colors.grey), // Garis di antara harga dan deskripsi
             const SizedBox(height: 8),
-            Text(
-              description,
-              style: const TextStyle(
-                fontSize: 14,
-                color: Colors.grey,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: descriptionLines
+                  .map(
+                    (line) => Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 4.0),
+                      child: Row(
+                        children: [
+                          Icon(
+                            iconData,
+                            color: Colors.green, // Warna ikon
+                            size: 16, // Atur ukuran ikon sesuai kebutuhan
+                          ),
+                          const SizedBox(width: 8),
+                          Flexible(
+                            child: Text(
+                              line,
+                              style: const TextStyle(
+                                fontSize: 14,
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                  .toList(),
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                
+              },
+              style: ElevatedButton.styleFrom(
+                primary: const Color.fromRGBO(127, 90, 240, 1),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
               ),
+              child: Text('Mulai'),
             ),
           ],
         ),
