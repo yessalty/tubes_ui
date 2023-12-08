@@ -48,9 +48,10 @@ class _ProfilePageState extends State<ProfilePage> {
                     GestureDetector(
                       onTap: () {
                         Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => NotificationPage()),
-                      );
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => NotificationPage()),
+                        );
                       },
                       child: const Icon(Icons.notifications),
                     ),
@@ -73,9 +74,10 @@ class _ProfilePageState extends State<ProfilePage> {
               GestureDetector(
                 onTap: () {
                   Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => const EditProfilePage()),
-                      );
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const EditProfilePage()),
+                  );
                 },
                 child: const Center(
                   child: Text(
@@ -89,102 +91,122 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
               const SizedBox(height: 16.0),
-              GridView.count(
-                shrinkWrap: true,
-                crossAxisCount: 3,
-                physics: const NeverScrollableScrollPhysics(),
-                children: [
-                  buildCard(
-                    icon: Icons.bookmark,
-                    title: 'BOOKMARKS',
-                    onTap: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => BookmarkPage()),
-                      );
-                    },
-                  ),
-                  buildCard(
-                    icon: Icons.subscriptions,
-                    title: 'SUBSCRIBE',
-                    onTap: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => const SubscribePage()),
-                      );
-                    },
-                  ),
-                  buildCard(
-                    icon: Icons.settings,
-                    title: 'SETTINGS',
-                    onTap: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => const SettingsPage()),
-                      );
-                    },
-                  ),
-                  buildCard(
-                    icon: Icons.history,
-                    title: 'HISTORY',
-                    onTap: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => const HistoryPage()),
-                      );
-                    },
-                  ),
-                  buildCard(
-                    icon: Icons.payment,
-                    title: 'PAYMENT',
-                    onTap: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => const PaymentPage()),
-                      );
-                    },
-                  ),
-                  buildCard(
-                    icon: Icons.bookmark,
-                    title: 'PROMOS',
-                    onTap: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => PromoPage()),
-                      );
-                    },
-                  ),
-                  buildCard(
-                    icon: Icons.group,
-                    title: 'FRIENDS LIST',
-                    onTap: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => FriendListPage()),
-                      );
-                    },
-                  ),
-                  buildCard(
-                    icon: Icons.chat,
-                    title: 'CONTACT US',
-                    onTap: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => const ContactUsPage()),
-                      );
-                    },
-                  ),
-                  buildCard(
-                    icon: Icons.exit_to_app,
-                    title: 'SIGN OUT',
-                    onTap: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => const LoginPage()),
-                      );
-                    },
-                  ),
-                ],
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: GridView.count(
+                  shrinkWrap: true,
+                  crossAxisCount: 3,
+                  physics: const NeverScrollableScrollPhysics(),
+                  children: [
+                    buildCard(
+                      icon: Icons.bookmark,
+                      title: 'BOOKMARKS',
+                      color: Color.fromARGB(255, 231, 231, 231),
+                      onTap: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => BookmarkPage()),
+                        );
+                      },
+                    ),
+                    buildCard(
+                      icon: Icons.subscriptions,
+                      title: 'SUBSCRIBE',
+                      color: Color.fromARGB(255, 231, 231, 231),
+                      onTap: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SubscribePage()),
+                        );
+                      },
+                    ),
+                    buildCard(
+                      icon: Icons.settings,
+                      title: 'SETTINGS',
+                      color: Color.fromARGB(255, 231, 231, 231),
+                      onTap: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SettingsPage()),
+                        );
+                      },
+                    ),
+                    buildCard(
+                      icon: Icons.history,
+                      title: 'HISTORY',
+                      color: Color.fromARGB(255, 231, 231, 231),
+                      onTap: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HistoryPage()),
+                        );
+                      },
+                    ),
+                    buildCard(
+                      icon: Icons.payment,
+                      title: 'PAYMENT',
+                      color: Color.fromARGB(255, 231, 231, 231),
+                      onTap: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const PaymentPage()),
+                        );
+                      },
+                    ),
+                    buildCard(
+                      icon: Icons.bookmark,
+                      title: 'PROMOS',
+                      color: Color.fromARGB(255, 231, 231, 231),
+                      onTap: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => PromoPage()),
+                        );
+                      },
+                    ),
+                    buildCard(
+                      icon: Icons.group,
+                      title: 'FRIENDS LIST',
+                      color: Color.fromARGB(255, 231, 231, 231),
+                      onTap: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => FriendListPage()),
+                        );
+                      },
+                    ),
+                    buildCard(
+                      icon: Icons.chat,
+                      title: 'CONTACT US',
+                      color: Color.fromARGB(255, 231, 231, 231),
+                      onTap: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ContactUsPage()),
+                        );
+                      },
+                    ),
+                    buildCard(
+                      icon: Icons.exit_to_app,
+                      title: 'SIGN OUT',
+                      color: Color.fromARGB(255, 231, 231, 231),
+                      onTap: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoginPage()),
+                        );
+                      },
+                    ),
+                  ],
+                ),
               ),
               const Spacer(),
             ],
@@ -197,11 +219,13 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget buildCard(
       {required IconData icon,
       required String title,
-      required VoidCallback onTap}) {
+      required VoidCallback onTap,
+      required Color color}) {
     return GestureDetector(
       onTap: onTap,
       child: Card(
         elevation: 2,
+        color: color,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
