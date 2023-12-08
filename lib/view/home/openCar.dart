@@ -211,7 +211,7 @@ class _OpenCarPageState extends State<OpenCarPage> {
                     isScrollControlled: true,
                     builder: (BuildContext context) {
                       double maxHeight =
-                          MediaQuery.of(context).size.height * 0.65;
+                          MediaQuery.of(context).size.height * 0.90;
 
                       return Container(
                         constraints: BoxConstraints(

@@ -26,7 +26,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
     super.initState();
 
     // Add a delay before navigating to the login page
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(Duration(seconds: 4), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const LoginPage()),
@@ -46,15 +46,14 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/images/splash.jpg',
-              height: 100,
-              width: 100,
+              'assets/images/splash.png',
+              height: 250,
+              width: 250,
             ),
-            const SizedBox(height: 20),
             const Text(
               'CAR RENT',
               style: TextStyle(
-                color: Colors.white,
+                color: Colors.black,
                 fontSize: 28.0,
                 fontWeight: FontWeight.bold,
               ),

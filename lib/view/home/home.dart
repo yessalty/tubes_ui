@@ -250,7 +250,7 @@ class _HomeViewState extends State<HomeView> {
                         color: const Color.fromARGB(255, 208, 205, 205),
                         child: Container(
                             width: 200,
-                            height: 320,
+                            height: 380,
                             child: Stack(
                               children: [
                                 Column(
@@ -300,6 +300,11 @@ class _HomeViewState extends State<HomeView> {
                                               SizedBox(width: 4),
                                               Text('5'),
                                               SizedBox(width: 12),
+                                            ],
+                                          ),
+                                          SizedBox(height: 8),
+                                          Row(
+                                            children: [
                                               Icon(Icons.car_rental, size: 18),
                                               SizedBox(width: 4),
                                               Text('2'),
